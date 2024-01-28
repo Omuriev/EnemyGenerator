@@ -1,3 +1,3 @@
 using UnityEngine;
 
-public class Mummy : MonoBehaviour { }
+public class Mummy : MonoBehaviour {}

@@ -227,7 +227,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6958747383940567673, guid: b26ac9c2f71432f4db87a3c347d3abbf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -425,7 +426,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6958747383940567673, guid: b26ac9c2f71432f4db87a3c347d3abbf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -631,8 +633,8 @@ MonoBehaviour:
   - {fileID: 807961408}
   - {fileID: 74211722}
   - {fileID: 503858586}
-  _prefab: {fileID: 6382732958181766692, guid: 512cfd246cbe25845987487cfe902bb7, type: 3}
-  _prefabRotation: {x: 0, y: 90, z: 0}
+  _prefab: {fileID: 8057556253179663435, guid: 512cfd246cbe25845987487cfe902bb7, type: 3}
+  _target: {fileID: 142469722}
   _repeatRate: 2
   _poolCapacity: 8
   _poolMaxCapacity: 8

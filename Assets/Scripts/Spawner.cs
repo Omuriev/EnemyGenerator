@@ -4,20 +4,20 @@ using UnityEngine.Pool;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPoints;
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private Vector3 _prefabRotation;
+    [SerializeField] private Mummy _prefab;
+    [SerializeField] private Transform _target;
     [SerializeField] private float _repeatRate;
     [SerializeField] private int _poolCapacity;
     [SerializeField] private int _poolMaxCapacity;
 
-    private ObjectPool<GameObject> _pool;
+    private ObjectPool<Mummy> _pool;
 
     private void Awake()
     {
-        _pool = new ObjectPool<GameObject>(
+        _pool = new ObjectPool<Mummy>(
             createFunc: () => Instantiate(_prefab),
             actionOnGet: (obj) => ActionOnGet(obj),
-            actionOnRelease: (obj) => obj.SetActive(false),
+            actionOnRelease: (obj) => obj.gameObject.SetActive(false),
             actionOnDestroy: (obj) => Destroy(obj),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
@@ -35,11 +35,12 @@ public class Spawner : MonoBehaviour
         _pool.Get();
     }
 
-    private void ActionOnGet(GameObject obj)
+    private void ActionOnGet(Mummy obj)
     {
+        obj.gameObject.SetActive(true);
         obj.transform.position = GetRandomSpawnPoint();
-        obj.transform.rotation = Quaternion.Euler(_prefabRotation);
-        obj.SetActive(true);
+        Vector3 direction = (_target.position - obj.transform.position).normalized;
+        obj.transform.forward = direction;
     }
 
     private Vector3 GetRandomSpawnPoint()
@@ -51,7 +52,7 @@ public class Spawner : MonoBehaviour
     {
         if (other.transform.TryGetComponent(out Mummy mummy))
         {
-            _pool.Release(other.gameObject);
+            _pool.Release(mummy);
         }
     }
 }
