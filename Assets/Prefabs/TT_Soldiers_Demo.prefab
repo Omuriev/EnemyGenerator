@@ -360,8 +360,8 @@ GameObject:
   - component: {fileID: 8162688823574331063}
   - component: {fileID: 3603738025290935051}
   - component: {fileID: -5994580626922038791}
-  - component: {fileID: 594240091583460203}
   - component: {fileID: 2303692478073296918}
+  - component: {fileID: 9206241055226673283}
   m_Layer: 0
   m_Name: TT_Soldiers_Demo
   m_TagString: Untagged
@@ -420,19 +420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPoint: {fileID: 0}
---- !u!114 &594240091583460203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2568621242465393949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 528dc7671b2fa1c4689ece8320869a3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
 --- !u!136 &2303692478073296918
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -456,6 +443,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9206241055226673283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568621242465393949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528dc7671b2fa1c4689ece8320869a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 18
 --- !u!1 &2951479017851829569
 GameObject:
   m_ObjectHideFlags: 0

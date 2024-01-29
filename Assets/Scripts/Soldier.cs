@@ -1,12 +1,19 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Mover))]
 public class Soldier : MonoBehaviour
 {
     [SerializeField] private Transform _targetPoint;
 
+    private Mover _mover;
+
+    private void Start()
+    {
+        _mover = GetComponent<Mover>();
+    }
+
     private void Update()
     {
-        var direction = (_targetPoint.position - transform.position).normalized;
-        transform.forward = direction;
+        _mover.SetTargetPosition(_targetPoint.position);
     }
 }

@@ -1,37 +1,14 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Movement))]
+[RequireComponent(typeof(Mover))]
 public class Mummy : MonoBehaviour 
 {
     private Transform _target;
-    private Movement _movement;
+    private Mover _mover;
 
     private void Start()
     {
-        _movement = GetComponent<Movement>();
-    }
-
-    private void Update()
-    {
-        if (_target != null)
-        {
-            SetDirection();
-        }
-        else
-        {
-            _movement.SetMovingStatus(false);
-        }
-    }
-
-    public void SetTarget(Transform target)
-    {
-        _target = target;
-    }
-
-    private void SetDirection()
-    {
-        Vector3 direction = (_target.position - transform.position).normalized;
-        transform.forward = direction;
+        _mover = GetComponent<Mover>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,5 +17,22 @@ public class Mummy : MonoBehaviour
         {
             Destroy(soldier.gameObject);
         }
+    }
+
+    private void Update()
+    {
+        if (_target != null)
+        {
+            _mover.SetTargetPosition(_target.position);
+        }
+        else
+        {
+            _mover.SetMovingStatus(false);
+        }
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
     }
 }
