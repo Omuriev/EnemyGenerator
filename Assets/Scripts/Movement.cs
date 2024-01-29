@@ -4,9 +4,17 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
+    private bool _isMove = true;
+
     private void Update()
     {
-        Move();
+        if (_isMove == true)
+            Move();
+    }
+
+    public void SetMovingStatus(bool isMove)
+    {
+        _isMove = isMove;
     }
 
     private void Move()
